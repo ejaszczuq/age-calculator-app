@@ -1,0 +1,8 @@
+/* ---CUSTOM VARIABLES--- */
+:root {
+    /*COLORS*/
+--purple-color: rgb(132,78,248);
+--light-grey-color: hsl(0, 0%, 86%);
+--smokey-grey-color: hsl(0, 1%, 44%);
+--off-white-color: hsl(0, 0%, 94%);
+}

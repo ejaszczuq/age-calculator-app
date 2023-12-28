@@ -8,7 +8,7 @@
   
   <title>Frontend Mentor | Age calculator app</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
   
   <!-- <style>
     .attribution { font-size: 11px; text-align: center; }
@@ -19,16 +19,25 @@
 <body>
   <section class="container">
     <section class="inputsSection">
-      <label>DAY</label><input type="text" name="dayInput" placeholder="DD">
-      <label>MONTH</label><input type="text" name="monthInput" placeholder="MM">
-      <label>YEAR</label><input type="text" name="yearInput"placeholder="YYYY">
+      <div class="inputBox">
+        <label>DAY</label><input type="text" name="dayInput" placeholder="DD">
+      </div>
+      <div class="inputBox">
+        <label>MONTH</label><input type="text" name="monthInput" placeholder="MM">
+      </div>
+      <div class="inputBox">
+        <label>YEAR</label><input type="text" name="yearInput"placeholder="YYYY">
+      </div>
     </section>
 
     <section class="resultsSection">
-      <hr>
 
-      <button type="submit"><img src="/assets/images/icon-arrow.svg" alt="icon-arrow"></button>
+      <div class="line">
+        
+        <hr>
 
+        <button type="submit"><img src="/assets/images/icon-arrow.svg" alt="icon-arrow"></button>
+      </div>
       <p><span>--</span>years</p>
       <p><span>--</span>months</p>
       <p><span>--</span>days</p>
