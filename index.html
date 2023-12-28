@@ -8,7 +8,7 @@
   
   <title>Frontend Mentor | Age calculator app</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
   
   <!-- <style>
     .attribution { font-size: 11px; text-align: center; }
@@ -17,22 +17,35 @@
 
 </head>
 <body>
+  <section class="container">
+    <section class="inputsSection">
+      <div class="inputBox">
+        <label>DAY</label><input type="text" name="dayInput" placeholder="DD">
+      </div>
+      <div class="inputBox">
+        <label>MONTH</label><input type="text" name="monthInput" placeholder="MM">
+      </div>
+      <div class="inputBox">
+        <label>YEAR</label><input type="text" name="yearInput"placeholder="YYYY">
+      </div>
+    </section>
 
-  <label for="">day<input type="text" name="dayInput" placeholder="dd"></label>
-  <label for="">month<input type="text" name="monthInput" placeholder="mm"></label>
-  <label for="">year<input type="text" name="yearInput"placeholder="yyyy"></label>
+    <section class="resultsSection">
 
-  <hr>
+      <div class="line">
+        
+        <hr>
 
-  <button type="submit"></button>
-
-  <p><span>--</span>years</p>
-  <p><span>--</span>months</p>
-  <p><span>--</span>days</p>
-  
-  <div class="attribution">
+        <button type="submit"><img src="/assets/images/icon-arrow.svg" alt="icon-arrow"></button>
+      </div>
+      <p><span>--</span>years</p>
+      <p><span>--</span>months</p>
+      <p><span>--</span>days</p>
+    </section>
+  </section>
+  <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">ejaszczuq</a>.
-  </div>
+  </div> -->
 </body>
 </html>
