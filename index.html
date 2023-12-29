@@ -9,6 +9,7 @@
   <title>Frontend Mentor | Age calculator app</title>
 
   <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="script.js"></script>
   
   <!-- <style>
     .attribution { font-size: 11px; text-align: center; }
@@ -20,13 +21,16 @@
   <section class="container">
     <section class="inputsSection">
       <div class="inputBox">
-        <label>DAY</label><input type="text" name="dayInput" placeholder="DD">
+        <label class="dayLabel">DAY</label><input type="number" name="dayInput" placeholder="DD" min="1">
+        <p class="inputInfoDay"></p>
       </div>
       <div class="inputBox">
-        <label>MONTH</label><input type="text" name="monthInput" placeholder="MM">
+        <label class="monthLabel">MONTH</label><input type="number" name="monthInput" placeholder="MM" min="1">
+        <p class="inputInfoMonth"></p>
       </div>
       <div class="inputBox">
-        <label>YEAR</label><input type="text" name="yearInput"placeholder="YYYY">
+        <label class="yearLabel">YEAR</label><input type="number" name="yearInput"placeholder="YYYY" min="1000">
+        <p class="inputInfoYear"></p>
       </div>
     </section>
 
@@ -36,11 +40,11 @@
         
         <hr>
 
-        <button type="submit"><img src="/assets/images/icon-arrow.svg" alt="icon-arrow"></button>
+        <button type="submit" onclick="check()"><img src="/assets/images/icon-arrow.svg" alt="icon-arrow"></button>
       </div>
-      <p><span>--</span>years</p>
-      <p><span>--</span>months</p>
-      <p><span>--</span>days</p>
+        <p class="yearsP"><span class="yearsSpan">--</span>years</p>
+        <p class="monthsP"><span class="monthsSpan">--</span>months</p>
+        <p class="daysP"><span class="daysSpan">--</span>days</p>
     </section>
   </section>
   <!-- <div class="attribution">
