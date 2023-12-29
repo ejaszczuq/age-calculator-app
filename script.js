@@ -106,7 +106,7 @@ let check = () => {
             return false;
         }
         else {
-            inputInfo.innerHTML = '';
+            inputInfo.innerHTML = '&nbsp';
             input.style.borderColor = '';
             document.querySelector(`.${labelClass}`).style.color = '';
             return true;
