@@ -2,54 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Age calculator app</title>
+
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="./assets/script.js"></script>
   
-  <title>Frontend Mentor | Age calculator app</title>
-
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <script src="script.js"></script>
-  
-  <!-- <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style> -->
-
 </head>
 <body>
-  <section class="container">
+  <main class="container">
     <section class="inputsSection">
       <div class="inputBox">
-        <label class="dayLabel">DAY</label><input type="number" name="dayInput" placeholder="DD" min="1">
-        <p class="inputInfoDay">&nbsp;</p>
+        <label class="dayLabel" for="dayInput">DAY</label><input type="number" name="dayInput" id="dayInput" placeholder="DD" min="1" max="31">
+        <p class="inputInfoDay">&nbsp;<br>&nbsp;</p>
       </div>
       <div class="inputBox">
-        <label class="monthLabel">MONTH</label><input type="number" name="monthInput" placeholder="MM" min="1">
-        <p class="inputInfoMonth">&nbsp;</p>
+        <label class="monthLabel" for="monthInput">MONTH</label><input type="number" name="monthInput" id="monthInput" placeholder="MM" min="1" max="12">
+        <p class="inputInfoMonth">&nbsp;<br>&nbsp;</p>
       </div>
       <div class="inputBox">
-        <label class="yearLabel">YEAR</label><input type="number" name="yearInput"placeholder="YYYY" min="1000">
-        <p class="inputInfoYear">&nbsp;</p>
+        <label class="yearLabel" for="yearInput">YEAR</label><input type="number" name="yearInput" id="yearInput" placeholder="YYYY" min="1000" max=`${currentYear}`>
+        <p class="inputInfoYear">&nbsp;<br>&nbsp;</p>
       </div>
     </section>
 
     <section class="resultsSection">
-
       <div class="line">
-        
         <hr>
-
-        <button type="submit" onclick="check()"><img src="/assets/images/icon-arrow.svg" alt="icon-arrow"></button>
+        <button type="submit" onclick="check()"><img src="./assets/images/icon-arrow.svg" alt="icon-arrow"></button>
       </div>
         <p class="yearsP"><span class="yearsSpan">--</span>years</p>
         <p class="monthsP"><span class="monthsSpan">--</span>months</p>
         <p class="daysP"><span class="daysSpan">--</span>days</p>
     </section>
-  </section>
-  <!-- <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">ejaszczuq</a>.
-  </div> -->
+  </main>
 </body>
 </html>
