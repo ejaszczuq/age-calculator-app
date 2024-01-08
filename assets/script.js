@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const currentYear = new Date().getFullYear();
-    const yearInput = document.getElementById('yearInput');
+    const currentYear = new Date().getFullYear(),
+    yearInput = document.getElementById('yearInput');
 
     if (yearInput) {
         yearInput.setAttribute('max', currentYear);
@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 let check = () => {
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const isCurrentYearLeap = currentYear % 4 === 0 && (currentYear % 100 !== 0 || currentYear % 400 === 0);
-    const daysInMonth = [31, isCurrentYearLeap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    const currentDate = new Date(),
+    currentYear = currentDate.getFullYear(),
+    isCurrentYearLeap = currentYear % 4 === 0 && (currentYear % 100 !== 0 || currentYear % 400 === 0),
+    daysInMonth = [31, isCurrentYearLeap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
     // Change style of an input field
     const changeStyle = (inputInfo, input, labelClass) => {
@@ -27,24 +27,24 @@ let check = () => {
     };
 
     // Declare input elements and related info elements
-    const yearInput = document.querySelector('input[name="yearInput"]');
-    const monthInput = document.querySelector('input[name="monthInput"]');
-    const inputInfoDay = document.querySelector('.inputInfoDay');
-    const dayInput = document.querySelector('input[name="dayInput"]');
-    const inputInfoMonth = document.querySelector('.inputInfoMonth');
-    const inputInfoYear = document.querySelector('.inputInfoYear');
+    const yearInput = document.querySelector('input[name="yearInput"]'),
+    monthInput = document.querySelector('input[name="monthInput"]'),
+    inputInfoDay = document.querySelector('.inputInfoDay'),
+    dayInput = document.querySelector('input[name="dayInput"]'),
+    inputInfoMonth = document.querySelector('.inputInfoMonth'),
+    inputInfoYear = document.querySelector('.inputInfoYear');
 
     // Get values and parsed values from input fields
-    const yearValue = getInputValue(yearInput);
-    const monthValue = getInputValue(monthInput);
-    const dayValue = getInputValue(dayInput);
-    const parsedDayValue = parseInt(dayValue);
+    const yearValue = getInputValue(yearInput),
+    monthValue = getInputValue(monthInput),
+    dayValue = getInputValue(dayInput),
+    parsedDayValue = parseInt(dayValue);
 
     // Check if the entered day value is valid for the selected month, considering leap years
-    const checkMaxDayValue = (day, month) => {
+    const checkMaxDayValue = (day, month, year) => {
         const maxDayValue = daysInMonth[month - 1];
 
-        if (month === 2 && isCurrentYearLeap) {
+        if (month === 2 && isCurrentYearLeap && year == currentYear) {
             if (day > maxDayValue + 1) {
                 inputInfoDay.innerHTML = `Max value for this<br>month: ${maxDayValue}`;
                 changeStyle(inputInfoDay, dayInput, 'dayLabel');
@@ -114,18 +114,24 @@ let check = () => {
     clearResults();
 
     // Perform input validation and display calculated date differences if input is valid
-    const isDayValid = checkMaxDayValue(parsedDayValue, parseInt(monthValue)) && validation(dayInput, inputInfoDay, dayValue, 'dayLabel');
-    const isMonthValid = checkMaxMonthValue(parseInt(monthValue)) && validation(monthInput, inputInfoMonth, monthValue, 'monthLabel');
-    const isYearValid = checkMaxYearValue(yearValue) && validation(yearInput, inputInfoYear, yearValue, 'yearLabel');
+    const isDayValid = checkMaxDayValue(parsedDayValue, parseInt(monthValue), parseInt(yearValue)) && validation(dayInput, inputInfoDay, dayValue, 'dayLabel'),
+    isMonthValid = checkMaxMonthValue(parseInt(monthValue)) && validation(monthInput, inputInfoMonth, monthValue, 'monthLabel'),
+    isYearValid = checkMaxYearValue(yearValue) && validation(yearInput, inputInfoYear, yearValue, 'yearLabel');
 
     if (isDayValid && isMonthValid && isYearValid) {
-        // Calculate date differences
+        // Check if the entered date is not in the future
         const enteredDate = new Date(`${yearValue}-${monthValue}-${dayValue}`);
+        if (enteredDate > currentDate) {
+            inputInfoMonth.innerHTML = 'Entered date is<br>in the future.';
+            return;
+        }
+
+        // Calculate date differences
         const timeDifferenceInMilliseconds = currentDate - enteredDate;
 
-        let yearsDifference = Math.floor(timeDifferenceInMilliseconds / (1000 * 60 * 60 * 24 * 365.25));
-        let monthsDifference = Math.floor((timeDifferenceInMilliseconds % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
-        let daysDifference = Math.floor((timeDifferenceInMilliseconds % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
+        let yearsDifference = Math.floor(timeDifferenceInMilliseconds / (1000 * 60 * 60 * 24 * 365.25)),
+        monthsDifference = Math.floor((timeDifferenceInMilliseconds % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44)),
+        daysDifference = Math.floor((timeDifferenceInMilliseconds % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
 
         // Add leading zeros to single-digit differences
         const addZero = (difference) => {
@@ -133,9 +139,9 @@ let check = () => {
         };
 
         // Display calculated differences in HTML
-        let yearsP = document.querySelector('.yearsP');
-        let monthsP = document.querySelector('.monthsP');
-        let daysP = document.querySelector('.daysP');
+        let yearsP = document.querySelector('.yearsP'),
+        monthsP = document.querySelector('.monthsP'),
+        daysP = document.querySelector('.daysP');
 
         yearsP.innerHTML = `<span>${addZero(yearsDifference)}</span> ${yearsDifference === 1 ? 'year' : 'years'}`;
         monthsP.innerHTML = `<span>${addZero(monthsDifference)}</span> ${monthsDifference === 1 ? 'month' : 'months'}`;
