@@ -8,17 +8,24 @@
 ![Correct results](/assets/images/app-in-action/correct-results.png)
 
 ## Views:
+<details>
+<summary>See the views!</summary>
 ![Mobile view](/assets/images/views/main-view.png)
-![Main view](/assets/images/views/main-view.png)
+![Main view](/assets/images/views/mobile-view.png)
+</details>
 
 ## Validation errors
-### Empty spaces
+<details>
+<summary>Empty spaces</summary>
 ![Empty](/assets/images/app-in-action/empty-spaces.png)
+</details>
 
-### Incorrect data
+<details>
+<summary>Incorrect data</summary>
 ![Validation errors 1](/assets/images/app-in-action/validation-errors-1.png)
 ![Validation errors 2](/assets/images/app-in-action/validation-errors-2.png)
 ![Validation errors 3](/assets/images/app-in-action/validation-errors-3.png)
+</details>
 
 ## Technologies Used:
 * JavaScript
