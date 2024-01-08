@@ -39,6 +39,13 @@
 * CSS
 
 ## Getting Started:
+<details>
+  <summary>App Page</summary>
+
+  https://ejaszczuq.github.io/age-calculator-app/
+  
+</details>
+
 ### To run this project locally, simply clone the repository and open the index.html file in a web browser.
 https://github.com/ejaszczuq/age-calculator-app.git
 
